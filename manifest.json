@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Canvas Gaslighter",
+  "description": "Change Canvas assignment due dates to earlier dates to reduce procrastination.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://canvas.instructure.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://canvas.instructure.com/courses/*/assignments*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
